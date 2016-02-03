@@ -1,23 +1,8 @@
 ---
 tasks:
-- id: 1
-  title: foley
-  description: catheter
-- id: 2
-  title: central line
-  description: large bore
-- id: 3
-  title: central line
-  description: large bore
 - id: 4
   title: ivc
   description: ''
-- id: 5
-  title: ''
-  description: ''
-- id: 6
-  title: sushi
-  description: burrito
 - id: 7
   title: ''
   description: ''
@@ -30,10 +15,13 @@ tasks:
 - id: 10
   title: run
   description: "rabbit\r\n"
-- id: 11
-  title: taylor
-  description: swift
 - id: 12
   title: ''
   description: ''
-total: 12
+- id: 13
+  title: lost
+  description: faraday
+- id: 14
+  title: spicy
+  description: "broth\r\n"
+total: 14

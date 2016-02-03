@@ -1,8 +1,14 @@
 <div class="container">
 
-<span class="text-danger"><h2><strong>All Tasks</strong></h2></span>
+  <span class="text-danger"><h2><strong>All Tasks</strong></h2></span>
 
-<% @tasks.each do |task| %>
-<span class="bg-info"><h3><%= task.id %>: <a href="/tasks/<%= task.id %>"><%= task.title %></a></h3></span>
-<% end %>
+    <% @tasks.each do |task| %>
+    <span class="bg-info"><h3>(<%= task.id %>): <a href="/tasks/<%= task.id %>"><%= task.title %></a></h3></span>
+    <a href="/tasks/<%= task.id %>/edit">Edit</a>
+
+    <form action="/tasks/<%= task.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="delete"/>
+    </form>
+    <% end %>
 </div>
