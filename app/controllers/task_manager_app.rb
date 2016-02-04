@@ -1,8 +1,8 @@
-require 'models/task_manager'
+# require 'models/task_manager'
 
 class TaskManagerApp <Sinatra::Base
-  set :root, File.expand_path("..", __dir__)
-  set :method_override, true
+  # set :root, File.expand_path("..", __dir__)
+  # set :method_override, true
 
   get '/' do
     erb :dashboard
@@ -48,7 +48,11 @@ class TaskManagerApp <Sinatra::Base
   end
 
   def task_manager
-    database = YAML::Store.new('db/task_manager')
+    if ENV["RACK_ENV"] == "test"
+      database = YAML::Store.new('db/task_manager_test')
+    else
+      database = YAML::Store.new('db/task_manager')
+    end
     @task_manager ||= TaskManager.new(database)
   end
 

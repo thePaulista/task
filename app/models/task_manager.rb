@@ -1,5 +1,5 @@
 require 'yaml/store'
-require_relative 'task'
+# require_relative 'task'
 
 class TaskManager
   attr_reader :database
@@ -48,4 +48,11 @@ class TaskManager
       database["tasks"].delete_if {|task| task["id"] == id.to_i}
     end
   end
+
+  def delete_all
+    database.transaction do
+      database['tasks'] = []
+      database['total'] = 0
+    end #this exists bc of yaml
+  end #this is unusual but on friday we will be getting rid of it with a gem
 end
