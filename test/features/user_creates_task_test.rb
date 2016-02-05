@@ -4,6 +4,8 @@ class UserCreatesTaskTest < Minitest::Test
   include Capybara::DSL #to include visits, etc
 
   def test_with_valid_attributes
+    #task_manager.create(this is faster)
+
     # As a user
     #When I visit the home page
     visit '/'

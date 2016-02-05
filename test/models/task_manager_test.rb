@@ -46,8 +46,8 @@ class TaskManagerTest < Minitest::Test
         description: "new description"
       }
 
-      d1 = task_manager.create(data1)
-      d2 = task_manager.create(data2)
+      task_manager.create(data1)
+      task_manager.create(data2)
 
       assert_equal "some title", task_manager.find(1).title
       assert_equal "new title", task_manager.find(2).title
@@ -77,3 +77,21 @@ class TaskManagerTest < Minitest::Test
   end
 
 end
+#
+# def create_tasks(num)
+#    num.times do |i|
+#      task_manager.create({
+#        title:       "a title #{i+1}",
+#        description: "a description #{i+1}"
+#        })
+#    end
+#  end
+#
+#  def test_it_can_find_a_specific_task_by_id
+#    create_tasks(3)
+#    task = task_manager.find(2)
+#    assert_equal Task, task.class
+#    assert_equal "a title 2", task.title
+#    assert_equal "a description 2", task.description
+#    assert_equal 2, task.id
+#  end
